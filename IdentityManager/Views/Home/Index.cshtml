@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <a asp-action="Enable2FactorAuthenticator" asp-controller="Account">Enable Two-Factor Authentication</a>
+        <br/><br/>
+
+        @if (User.IsInRole("Admin"))
+        {
+            <p>Your role is Admin</p>
+        }
+        else
+        {
+            <p>Your role is User</p>
+        }
+    }
+
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
